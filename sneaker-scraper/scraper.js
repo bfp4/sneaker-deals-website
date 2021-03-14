@@ -10,9 +10,9 @@ const year = d.getFullYear()
 const date = `${month}${day}${year}`
 
 function scrapeAll(){
-    //nike(date)
-    //adidas(date)
-    //end(date)
+    nike(date)
+    adidas(date)
+    end(date)
     finalscore(date)
 }
 

@@ -63,8 +63,8 @@ export default async function adidasScraper(date){
 
     await browser.close();
 
-    // for(let entry of data){
-    //     useAddFirestore(entry)
-    // }
+    for(let entry of data){
+        useAddFirestore(entry)
+    }
     console.log(data)
 }
