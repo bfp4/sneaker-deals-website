@@ -15,7 +15,6 @@ const options = {
 import nike from "./scrapers/nike.js"
 import adidas from "./scrapers/adidas.js"
 import end from "./scrapers/end.js"
-import finalscore from "./scrapers/finalscore.js"
 
 const d = new Date()
 const month = d.getMonth()
@@ -25,7 +24,7 @@ const date = `${month}${day}${year}`
 
 async function scrapeAll(){
     await nike(date, options)
-    // await adidas(date, options)
+    await adidas(date, options)
     // await end(date, options)
 }
 

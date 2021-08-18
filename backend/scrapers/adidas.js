@@ -13,7 +13,7 @@ export default async function adidasScraper(date, options){
     const data = []
 
     const titles = await page.evaluate(() => {
-        const titles = document.querySelectorAll(".gl-product-card__name")
+        const titles = document.querySelectorAll("[data-auto-id=product-card-title]")
         const titleList = [...titles]
         const text = titleList.map(title => title.innerText)
         return text
@@ -26,7 +26,6 @@ export default async function adidasScraper(date, options){
 
     const links = await page.evaluate(() => {
         const links = document.querySelectorAll(".gl-product-card__assets-link")
-        console.log("links")
         const linksList = [...links]
         const href = linksList.map(link => link.href)
         return href
