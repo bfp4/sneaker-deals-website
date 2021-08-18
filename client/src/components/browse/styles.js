@@ -25,10 +25,38 @@ export const Grid = styled.div`
 export const ShowMore = styled.button`
     width: 230px;
     height: 50px;
-    background: black;
-    color: #F5F5F5;
-    border: none;
+    position: relative;
+    background-color: #FFFFFF;
+    color: #000;
+    border: 3px solid #000;
     border-radius: 4px;
     font-size: 24px;
-    margin-top: 30px
+    margin-top: 30px;
+    cursor: pointer;
+    transition: color 300ms ease-in-out;
+    z-index: 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #000;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 300ms cubic-bezier(0.3, 1, 0.8, 1);
+    }
+
+    @media (hover: hover){
+        &:hover {
+            color: #FFFFFF;
+        }
+    
+        &:hover::before {
+            transform: scaleX(1);
+        }
+    }
 `

@@ -1,11 +1,10 @@
-import puppeteer from "puppeteer"
+import puppeteer from "puppeteer-extra"
+import StealthPlugin from 'puppeteer-extra-plugin-stealth'
 import useAddFirestore from "../hooks/useAddFirestore.js"
 
-export default async function adidasScraper(date){
-    const browser = await puppeteer.launch({
-        headless: false,
-        defaultViewport: null
-    });
+export default async function adidasScraper(date, options){
+    puppeteer.use(StealthPlugin())
+    const browser = await puppeteer.launch(options);
     const page = await browser.newPage();
     await page.setDefaultNavigationTimeout(0);
     await page.setDefaultTimeout(0);

@@ -1,61 +1,28 @@
 import styled from "styled-components/macro";
-import jordan from "./jordan.png"
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 350px;
-    background-image: url(${jordan});
+    height: 375px;
+    background-image: url(images/jordan.png);
     background-size: contain;
-    background-position: right;
+    background-position: center;
 ` 
 
-export const Header = styled.div`
+export const Header = styled.h1`
     background: #000000;
+    margin: 0;
     margin-bottom: 10px;
     color: #F5F5F5;
     font-size: 40px;
     padding: 5px;
     text-align: center;
 
-    @media(max-width: 575px){
-        font-size: 33px
+    @media (max-width: 600px){
+        font-size: 24px
     }
-`
-
-export const Input = styled.input`
-    height: 100%;
-    width: 90%;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    outline: none;
-`
-
-export const Icon = styled.img`
-    width: 24px;
-    height: 24px;
-
-    @media(max-width: 720px){
-        width: 20px;
-        height: 20px;
-    }
-
-    @media(max-width: 600px){
-        width: 12px;
-        height: 12px;
-    }
-`
-
-export const IconContainer = styled.div`
-    width: 10%;
-    height: 50px;
-    border-radius: 4px 0 0 4px;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center
 `
 
 export const SearchBar = styled.div`
@@ -63,4 +30,24 @@ export const SearchBar = styled.div`
     height: 48px;
     display: flex;
     align-items: center;
+
+    @media (max-width: 600px){
+        width: 75%
+    }
+`
+
+export const Input = styled.input`
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    padding-left: 40px;
+    font-size: 24px;
+`
+
+export const Icon = styled.i`
+    font-size: 24px;
+    position: absolute;
+    margin-left: 10px
 `

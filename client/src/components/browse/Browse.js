@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState  } from "react"
 import { Container, Grid, ShowMore } from "./styles"
 import useFirestore from "../../hooks/useFirestore.js"
+import useFirestoreSize from "../../hooks/useFirestoreSize"
 
 import SneakerCard from "../sneaker-card/SneakerCard"
 import FocusSneakerCard from "../focus-sneaker-card/FocusSneakerCard"
@@ -11,6 +12,7 @@ export default function Browse(props){
     const [data, setData] = useState({})
     const [limit, setLimit] = useState(6)
     const { docs } = useFirestore("sneaker-deals", limit)
+    const max = useFirestoreSize("sneaker-deals")
 
     const mapItem = props.query === "" ? docs : props.results
  
@@ -29,7 +31,8 @@ export default function Browse(props){
     let content;
 
     if(mapItem.length === 0 && mapItem === docs) content = <LoadingIcon />
-    else if(mapItem.length === 0)content = <ShowMore onClick={() => setLimit(prev => prev + 6)}>NOTHING FOUND</ShowMore>
+    else if(mapItem.length === 0)content = <ShowMore>NOTHING FOUND</ShowMore>
+    else if(mapItem.length === max)content = null
     else content = <ShowMore onClick={() => setLimit(prev => prev + 6)}>SHOW MORE</ShowMore>
 
     return(
@@ -38,7 +41,7 @@ export default function Browse(props){
                 {children}
             </Grid>
             {content}
-            {modal ? <FocusSneakerCard setModal={setModal} data={data} setData={setData}/> : null}
+            {modal && <FocusSneakerCard setModal={setModal} data={data} setData={setData}/>}
         </Container>
     )
 }

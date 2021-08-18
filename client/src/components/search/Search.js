@@ -1,6 +1,5 @@
 import React from "react"
-import { Container, Header, Input, Icon, SearchBar, IconContainer } from "./styles"
-import icon from "./search-icon.svg"
+import { Container, Header, Input, Icon, SearchBar } from "./styles"
 
 export default function Search(props){
     return(
@@ -9,9 +8,6 @@ export default function Search(props){
                 Find the best sneaker deals.
             </Header>
             <SearchBar>
-                <IconContainer>
-                    <Icon alt="search" src={icon} />
-                </IconContainer>
                 <Input 
                     type="text" 
                     placeholder="Search..." 
@@ -22,6 +18,7 @@ export default function Search(props){
                     value={props.query}
                     onChange={props.handleSearch}
                 />
+                <Icon className="fas fa-search"></Icon>
             </SearchBar>
         </Container>
     )

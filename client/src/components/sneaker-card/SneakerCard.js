@@ -2,7 +2,7 @@ import React from "react"
 import {  WholeWrapper, Name, Pic, Price, Card, Bottom, Brand, Retail } from "./styles"
 
 export default function SneakerCard(props){
-    function click(){
+    const handleClick = () => {
         props.setModal(true);
         props.setData(props.data)
     }
@@ -11,9 +11,9 @@ export default function SneakerCard(props){
             <WholeWrapper className="whole">
                 <Card 
                     className="container" 
-                    onClick={() => click()}
+                    onClick={handleClick}
                 >
-                    <Pic alt="what up" src={props.data.image}/>
+                    <Pic alt="sneaker" src={props.data.image}/>
                     <Name>{props.data.title}</Name>
                     <Bottom>
                         <Price>{props.data.sale}(<Retail>{props.data.retail}</Retail>)</Price>

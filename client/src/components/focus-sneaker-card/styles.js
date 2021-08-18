@@ -1,7 +1,5 @@
 import styled from "styled-components/macro"
 
-export const Container = styled.div``
-
 export const Backdrop = styled.div`
     position: fixed;
     top: 0;
@@ -23,6 +21,10 @@ export const Card = styled.div`
     display: flex;
     flex-direction: column;
     padding: 10px;
+
+    @media (max-width: 1200px){
+        width: 80%;
+    }
 `
 
 export const Header = styled.div`
@@ -33,13 +35,17 @@ export const Header = styled.div`
     display: flex; 
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px
+    margin-bottom: 5px;
 `
 
 export const Title = styled.div`
     color: #F5F5F5;
     font-size: 40px;
     margin: 10px;
+
+    @media (max-width: 1200px){
+        font-size: 30px
+    }
 
     @media(max-width: 600px){
         font-size: 15px;
@@ -61,10 +67,7 @@ export const PicCon = styled.div`
 
 export const Pic = styled.img`
     height: 100%;
-
-    @media(max-width: 600px){
-        height: 70%;
-    }
+    max-width: 95%;
 `
 
 export const PriceCon = styled.div`
@@ -91,14 +94,25 @@ export const Price = styled.div`
     }
 `
 
-export const Link = styled.button`
+export const Link = styled.a`
     background-color: black;
     color: #F5F5F5;
-    margin: 10px;
     border: none;
-    padding: 10px;
     cursor: pointer;
     border-radius: 4px;
+    height: 100%;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+
+    @media(max-width: 600px){
+        width: 100%;
+        margin-right: 0px;
+        padding: 4px 0px;
+    }
 `
 
 export const Retail = styled.div`

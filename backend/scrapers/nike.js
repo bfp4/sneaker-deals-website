@@ -1,10 +1,10 @@
-import puppeteer from "puppeteer"
+import puppeteer from "puppeteer-extra"
+import StealthPlugin from 'puppeteer-extra-plugin-stealth'
 import useAddFirestore from "../hooks/useAddFirestore.js"
 
-export default async function nikeScraper(date){
-    const browser = await puppeteer.launch({
-        headless: false
-    });
+export default async function nikeScraper(date, options){
+    puppeteer.use(StealthPlugin())
+    const browser = await puppeteer.launch(options);
     const page = await browser.newPage();
     await page.setDefaultNavigationTimeout(0);
     await page.goto("https://www.nike.com/w/sale-shoes-3yaepzy7ok");

@@ -17,8 +17,6 @@ const useFirestore = (collection, limit) => {
       });
 
     return () => unsub();
-    // this is a cleanup function that react will run when
-    // a component using the hook unmounts
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [limit]);
 

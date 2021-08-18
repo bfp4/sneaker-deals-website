@@ -2,8 +2,8 @@ import styled from "styled-components/macro"
 
 export const WholeWrapper = styled.div`
     margin: 25px;
+    cursor: pointer;
     &:hover .container{
-        cursor: pointer;
         box-shadow: 18px 18px;
         left: -20px;
         top: -10px
@@ -21,7 +21,13 @@ export const Card = styled.div`
     border: 1px solid black;
     border-radius: 12px;
     box-shadow: 12px 12px;
-    padding: 10px
+    padding: 10px;
+    transition: 250ms ease;
+
+    @media (max-width: 600px){
+        width: 200px;
+        height: 200px
+    }
 `
 
 export const Pic = styled.img`
@@ -36,6 +42,10 @@ export const Name = styled.div`
     background: black;
     color: #F5F5F5;
     padding: 5px;
+    transition: font-size 250ms ease;
+    @media (max-width: 600px){
+        font-size: 10px
+    }
 `
 
 export const Price = styled.div`
@@ -51,7 +61,12 @@ export const Bottom = styled.div`
     font-size: 25px;
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    transition: font-size 250ms ease;
+
+    @media (max-width: 600px){
+        font-size: 14px
+    }
 `
 
 export const Retail = styled.div`
